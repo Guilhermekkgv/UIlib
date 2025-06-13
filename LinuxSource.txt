@@ -1775,7 +1775,6 @@ function Linux.Create(config)
             local Input = Linux.Instance("Frame", {
                 Parent = Container,
                 BackgroundColor3 = Color3.fromRGB(18, 18, 18),
-                BorderColor3 = Color3.fromRGB(39, 39, 42),
                 BorderSizePixel = 0,
                 Size = UDim2.new(1, -8, 0, 36),
                 ZIndex = 1,
@@ -1822,8 +1821,19 @@ function Linux.Create(config)
                 TextTruncate = Enum.TextTruncate.AtEnd,
                 TextXAlignment = Enum.TextXAlignment.Center,
                 ClearTextOnFocus = false,
-                ClipsDescendants = false,
+                ClipsDescendants = true,
                 ZIndex = 3
+            })
+            
+            Linux.Instance("UICorner", {
+                Parent = TextBox,
+                CornerRadius = UDim.new(0, 4)
+            })
+            
+            Linux.Instance("UIStroke", {
+                Parent = TextBox,
+                Color = Color3.fromRGB(39, 39, 42),
+                Thickness = 1
             })
             
             Linux.Instance("UIPadding", {
@@ -1831,17 +1841,6 @@ function Linux.Create(config)
                 PaddingLeft = UDim.new(0, 6),
                 PaddingRight = UDim.new(0, 6)
             })
-            
-            Linux.Instance("UICorner", {
-            Parent = TextBox,
-            CornerRadius = UDim.new(0, 4)
-        })
-
-        Linux.Instance("UIStroke", {
-            Parent = TextBox,
-            Color = Color3.fromRGB(39, 39, 42),
-            Thickness = 1
-        })
             
             local MaxLength = 100
             
@@ -2309,8 +2308,6 @@ function Linux.Create(config)
             local KeybindButton = Linux.Instance("TextButton", {
                 Parent = KeybindFrame,
                 BackgroundColor3 = Color3.fromRGB(19, 19, 19),
-                BorderSizePixel = 1,
-                BorderColor3 = Color3.fromRGB(39, 39, 42),
                 Size = UDim2.new(0.3, -16, 0, 24),
                 Position = UDim2.new(0.7, 0, 0.5, -12),
                 Font = Enum.Font.GothamSemibold,
@@ -2319,6 +2316,17 @@ function Linux.Create(config)
                 TextSize = 12,
                 ZIndex = 3,
                 AutoButtonColor = false
+            })
+            
+            Linux.Instance("UICorner", {
+                Parent = KeybindButton,
+                CornerRadius = UDim.new(0, 4)
+            })
+            
+            Linux.Instance("UIStroke", {
+                Parent = KeybindButton,
+                Color = Color3.fromRGB(39, 39, 42),
+                Thickness = 1
             })
             
             local inputConnection = nil
